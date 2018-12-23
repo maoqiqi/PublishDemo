@@ -29,10 +29,12 @@ dependencies {
 publish {
     // bintray 注册的用户名
     userOrg = 'maoqiqi'
+    // 代码仓库名称
+    repoName = 'custom-publish'
     // compile 引用时的第1部分groupId
     groupId = 'com.codearms.maoqiqi'
     // compile 引用时的第2部分项目名
-    artifactId = 'publish'
+    artifactId = 'custom-publish'
     // compile 引用时的第3部分版本号
     publishVersion = '1.0.0'
     desc = 'Just a simple android lib sample'
