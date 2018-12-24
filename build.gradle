@@ -32,8 +32,20 @@ allprojects {
             url 'https://dl.bintray.com/maoqiqi/custom-publish'
         }
     }
+    tasks.withType(Javadoc) {
+        failOnError false
+        options {
+            encoding "UTF-8"
+            charSet "UTF-8"
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+// 只发布publish_1_2
+tasks.getByPath(":publish_1_2:bintrayUpload").enabled = true
+tasks.getByPath(":publish:bintrayUpload").enabled = false
