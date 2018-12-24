@@ -27,4 +27,6 @@ dependencies {
     // implementation project(':publish')
     // implementation 'com.codearms.maoqiqi:publish:1.0.0'
     implementation 'com.codearms.maoqiqi:custom-publish:1.0.0'
+    implementation project(':publish_1_1')
+    implementation project(':publish_1_3')
 }

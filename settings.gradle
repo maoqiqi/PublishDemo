@@ -1,1 +1,1 @@
-include ':app', ':publish'
+include ':app', ':publish', ':publish_1_1', ':publish_1_2', ':publish_1_3'
