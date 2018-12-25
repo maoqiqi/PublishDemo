@@ -30,4 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public void publish3(View view) {
         msg.setText(com.codearms.maoqiqi.publish_1_3.Publish.call2());
     }
+
+    public void getInfo(View view) {
+        msg.setText(com.codearms.maoqiqi.publish_2.Publish.getInfo());
+    }
 }

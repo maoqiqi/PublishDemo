@@ -1,9 +1,8 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.codearms.maoqiqi.publish.demo"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
@@ -19,17 +18,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    // implementation project(':publish')
-    // implementation 'com.codearms.maoqiqi:publish:1.0.0'
-    implementation 'com.codearms.maoqiqi:custom-publish:1.0.0'
-    // implementation project(':publish_1_1')
-    // implementation project(':publish_1_3')
-    implementation 'com.codearms.maoqiqi:publish_1_1:1.0.0'
-    implementation 'com.codearms.maoqiqi:publish_1_3:1.0.0'
-    implementation project(':publish_2')
 }

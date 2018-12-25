@@ -3,4 +3,5 @@
     <string name="button">Button</string>
     <string name="publish_1_1_call2">publish_1_1_call2</string>
     <string name="publish_1_3_call2">publish_1_3_call2</string>
+    <string name="publish_2_get_info">publish_2_get_info</string>
 </resources>

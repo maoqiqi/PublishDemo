@@ -23,6 +23,12 @@
         android:onClick="publish3"
         android:text="@string/publish_1_3_call2" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="getInfo"
+        android:text="@string/publish_2_get_info" />
+
     <TextView
         android:id="@+id/msg"
         android:layout_width="match_parent"
