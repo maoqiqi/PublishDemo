@@ -46,6 +46,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// 只发布publish_1_2
-tasks.getByPath(":publish_1_2:bintrayUpload").enabled = true
+// tasks.getByPath(":需要升级的module:bintrayUpload").enabled = true
+// tasks.getByPath(":不需要升级的module:bintrayUpload").enabled = false
+tasks.getByPath(":publish_1_2:bintrayUpload").enabled = false
 tasks.getByPath(":publish:bintrayUpload").enabled = false
