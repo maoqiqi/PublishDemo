@@ -25,8 +25,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // implementation project(':publish')
-    // implementation 'com.codearms.maoqiqi:publish:1.0.0'
-    implementation 'com.codearms.maoqiqi:custom-publish:1.0.0'
+    implementation 'com.codearms.maoqiqi:my-publish:1.0.0'
+    // implementation 'com.codearms.maoqiqi:custom-publish:1.0.0'
     // implementation project(':publish_1_1')
     // implementation project(':publish_1_3')
     implementation 'com.codearms.maoqiqi:publish_1_1:1.0.0'

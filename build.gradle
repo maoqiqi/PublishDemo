@@ -52,7 +52,7 @@ task clean(type: Delete) {
 
 // tasks.getByPath(":需要升级的module:bintrayUpload").enabled = true
 // tasks.getByPath(":不需要升级的module:bintrayUpload").enabled = false
-tasks.getByPath(":publish:bintrayUpload").enabled = false
 tasks.getByPath(":publish_1_1:bintrayUpload").enabled = false
 tasks.getByPath(":publish_1_2:bintrayUpload").enabled = false
 tasks.getByPath(":publish_1_3:bintrayUpload").enabled = false
+tasks.getByPath(":publish_2:bintrayUpload").enabled = false
