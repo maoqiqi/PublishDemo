@@ -31,5 +31,6 @@ dependencies {
     // implementation project(':publish_1_3')
     implementation 'com.codearms.maoqiqi:publish_1_1:1.0.0'
     implementation 'com.codearms.maoqiqi:publish_1_3:1.0.0'
-    implementation project(':publish_2')
+    // implementation project(':publish_2')
+    implementation 'com.codearms.maoqiqi:publish_2:1.0.1'
 }
