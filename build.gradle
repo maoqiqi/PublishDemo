@@ -38,6 +38,18 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 14,
+            targetSdkVersion : 28
+    ]
+    version = [
+            androidSupportSdkVersion: "28.0.0"
+    ]
+}
+
 // tasks.getByPath(":需要升级的module:bintrayUpload").enabled = true
 // tasks.getByPath(":不需要升级的module:bintrayUpload").enabled = false
 tasks.getByPath(":publish_1_1:bintrayUpload").enabled = false
