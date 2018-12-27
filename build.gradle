@@ -5,12 +5,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://dl.bintray.com/maoqiqi/maven'
-        }
-        maven {
-            url 'https://dl.bintray.com/maoqiqi/custom-publish'
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
@@ -29,12 +23,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://dl.bintray.com/maoqiqi/maven'
-        }
-        maven {
-            url 'https://dl.bintray.com/maoqiqi/custom-publish'
-        }
     }
     tasks.withType(Javadoc) {
         failOnError false
