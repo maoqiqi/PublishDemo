@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -7,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,17 +26,4 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 
-publish {
-    // bintray 注册的用户名
-    userOrg = 'maoqiqi'
-    // 代码仓库名称
-    repoName = 'maven'
-    // compile 引用时的第1部分groupId
-    groupId = 'com.codearms.maoqiqi'
-    // compile 引用时的第2部分项目名
-    artifactId = 'my-publish'
-    // compile 引用时的第3部分版本号
-    publishVersion = '1.0.0'
-    desc = 'Just a simple android lib sample.'
-    website = 'https://github.com/maoqiqi/PublishDemo'
-}
+apply from: '../bintray_1.gradle'

@@ -1,0 +1,46 @@
+apply plugin: 'com.novoda.bintray-release'
+
+// load properties
+Properties properties = new Properties()
+properties.load(rootProject.file('local.properties').newDataInputStream())
+
+// read properties
+def user = properties.getProperty("bintray.user")
+def key = properties.getProperty("bintray.key")
+
+// defaultConfig
+def projectVersionName = android.defaultConfig.versionName
+
+publish {
+    // Contains the organisation name to use for upload.
+    userOrg = rootProject.ext.bintray["userOrg"]
+    // The group id to use for the upload.
+    groupId = rootProject.ext.bintray["groupId"]
+    // The artifact id to use.
+    artifactId = projectName
+    // A string with the version to use. Can't end with -SNAPSHOT because bintray doesn't accept snapshots.
+    publishVersion = projectVersionName
+    // A short description for this package in bintray.
+    desc = projectDescription
+    // A string with the url for the website of this project. The Github repo can be used here.
+    website = rootProject.ext.bintray["website"]
+
+    // [Default: maven] The repository name.
+    repoName = rootProject.ext.bintray["repoName"]
+    // The display name for this package in bintray. If not set, the artifactId will be used for this.
+    uploadName = projectName
+    // The url of the issue tracker for the project. If the website contains 'github.com' then this property is set to "${website}/issues" by default.
+    issueTracker = "${website}/issues"
+    // The url of the vcs for this project. If the website contains 'github.com' then this is set to "${website}.git" by default.
+    repository = "${website}.git"
+    // [Default: ['Apache-2.0']] A list of license identifiers for the project.
+    licences = ['Apache-2.0']
+    // [Default: true] This boolean defines if the package will be published when uploaded. If this is false, the package will still be uploaded to bintray but you'll have to publish it manually.
+    autoPublish = true
+    // The username to be used to upload.
+    bintrayUser = user
+    // The bintray API key for the user account.
+    bintrayKey = key
+    //  If set to true this will run everything but it won't upload the package to bintray. If false then it will upload normally.
+    dryRun = false
+}

@@ -16,7 +16,64 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView info = findViewById(R.id.info);
         msg = findViewById(R.id.msg);
+
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("APPLICATION_ID:");
+        stringBuffer.append(com.codearms.maoqiqi.publish.BuildConfig.APPLICATION_ID);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_CODE:");
+        stringBuffer.append(com.codearms.maoqiqi.publish.BuildConfig.VERSION_CODE);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_NAME:");
+        stringBuffer.append(com.codearms.maoqiqi.publish.BuildConfig.VERSION_NAME);
+        stringBuffer.append("\n");
+        stringBuffer.append("\n");
+
+        stringBuffer.append("APPLICATION_ID:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_1.BuildConfig.APPLICATION_ID);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_CODE:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_1.BuildConfig.VERSION_CODE);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_NAME:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_1.BuildConfig.VERSION_NAME);
+        stringBuffer.append("\n");
+        stringBuffer.append("\n");
+
+        stringBuffer.append("APPLICATION_ID:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_2.BuildConfig.APPLICATION_ID);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_CODE:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_2.BuildConfig.VERSION_CODE);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_NAME:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_2.BuildConfig.VERSION_NAME);
+        stringBuffer.append("\n");
+        stringBuffer.append("\n");
+
+        stringBuffer.append("APPLICATION_ID:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_3.BuildConfig.APPLICATION_ID);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_CODE:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_3.BuildConfig.VERSION_CODE);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_NAME:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_1_3.BuildConfig.VERSION_NAME);
+        stringBuffer.append("\n");
+        stringBuffer.append("\n");
+
+        stringBuffer.append("APPLICATION_ID:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_2.BuildConfig.APPLICATION_ID);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_CODE:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_2.BuildConfig.VERSION_CODE);
+        stringBuffer.append("\n");
+        stringBuffer.append("VERSION_NAME:");
+        stringBuffer.append(com.codearms.maoqiqi.publish_2.BuildConfig.VERSION_NAME);
+
+        info.setText(stringBuffer.toString());
     }
 
     public void onClick(View view) {
