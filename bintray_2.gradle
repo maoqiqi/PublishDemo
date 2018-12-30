@@ -124,7 +124,7 @@ bintray {
                 // OSS user token: mandatory
                 user = 'userToken'
                 // OSS user password: mandatory
-                password = 'paasword'
+                password = 'password'
                 // Optional property. By default the staging repository is closed and artifacts are released to Maven Central.
                 // You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
                 close = '1'
@@ -134,21 +134,22 @@ bintray {
     configurations = ['archives']
 }
 
-// 以下是生成sources.jar和javadoc.jar任务
-// 生成sources.jar
+// The following is the task of generating sources.jar and javadoc.jar
+
+// This generates sources.jar
 task sourcesJar(type: Jar) {
-    // 通过from函数指定代码源,这里是默认代码源
+    // Specify the source code through the from function, which is the default source
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
 
-// 设置Javadoc
+// Set the Javadoc
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
-// 生成javadoc.jar,这里dependsOn意为仅当javadoc完成后才开始本task
+// This generates javadoc.jar, dependsOn here means that this task will only start after the javadoc complete.
 task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
     classifier = 'javadoc'
