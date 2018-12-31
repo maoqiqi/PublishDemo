@@ -22,8 +22,27 @@ PublishDemo is a project that help Android developers publish lib to jcenter.
   * [保存APIKEY](#保存APIKEY)
 * [上传Library到自己创建的Maven仓库](#上传Library到自己创建的Maven仓库)
   * [使用bintray-release插件](#使用bintray-release插件)
+    * [配置bintray-release插件](#配置bintray-release插件)
+    * [添加bintray-release插件需要的脚本](#添加bintray-release插件需要的脚本)
+    * [执行bintray-release上传命令](#执行bintray-release上传命令)
   * [使用android-maven-gradle-plugin和gradle-bintray-plugin插件](#使用android-maven-gradle-plugin和gradle-bintray-plugin插件)
+    * [配置插件](#配置插件)
+    * [添加插件需要的脚本](#添加插件需要的脚本)
+    * [执行插件上传命令](#执行插件上传命令)
 * [提交到JCenter](#提交到JCenter)
+* [一分钟上传Library到JCenter](#一分钟上传Library到JCenter)
+  * [使用bintray-release插件脚本](#使用bintray-release插件脚本)
+    * [配置bintray-release插件需要的公共参数](#配置bintray-release插件需要的公共参数)
+    * [配置Bintray账号](#配置Bintray账号)
+    * [配置bintray-release插件需要的项目信息](#配置bintray-release插件需要的项目信息)
+    * [引入bintray_1脚本](#引入bintray_1脚本)
+    * [通过bintray_1上传到Bintray](#通过bintray_1上传到Bintray)
+  * [使用android-maven-gradle-plugin和gradle-bintray-plugin插件脚本](#使用android-maven-gradle-plugin和gradle-bintray-plugin插件脚本)
+    * [配置插件需要的公共参数](#配置插件需要的公共参数)
+    * [配置Bintray账号以及开发者信息](#配置Bintray账号以及开发者信息)
+    * [配置插件需要的项目信息](#配置插件需要的项目信息)
+    * [引入bintray_2脚本](#引入bintray_2脚本)
+    * [通过bintray_2上传到Bintray](#通过bintray_2上传到Bintray)
 
 <h2 id="h_1">什么是Maven、JCenter、MavenCentral、JitPack、Bintray?</h2>
 
@@ -68,7 +87,7 @@ Bintray其实只是一个网站，他们负责维护JCenter这个库，就是说
 
 `maven { url 'https://dl.bintray.com/maoqiqi/maven' }`
 
-而JCenter仓库只是Bintray官方账户创建的一个Maven仓库，地址是[https://jcenter.bintray.com](https://jcenter.bintray.com)。
+而JCenter仓库只是Bintray官方账户创建的一个Maven仓库，地址是 https://jcenter.bintray.com 。
 其实个人的仓库和JCenter是平级的，只不过JCenter被Android Gradle设为了标准仓库。
 
 
@@ -82,11 +101,11 @@ Bintray其实只是一个网站，他们负责维护JCenter这个库，就是说
 
 ### Bintray网站上创建账户
 
-注册组织：[https://bintray.com/signup](https://bintray.com/signup)。
+注册组织： https://bintray.com/signup 。
 
 ![organization](images/bintray_organization.png)
 
-注册个人：[https://bintray.com/signup/oss](https://bintray.com/signup/oss)。
+注册个人： https://bintray.com/signup/oss 。
 
 ![personal](images/bintray_personal.png)
 
@@ -98,6 +117,8 @@ Bintray其实只是一个网站，他们负责维护JCenter这个库，就是说
 
 ### 保存APIKEY
 
+在首页右上角点击Edit Profile进入个人信息编辑页面，接下来点击页面左边列表的最后一项API Key。
+
 APIKEY的查看如下：
 
 ![api_key](images/bintray_api_key.png)
@@ -106,6 +127,8 @@ APIKEY的查看如下：
 ## 上传Library到自己创建的Maven仓库
 
 ### 使用bintray-release插件
+
+#### 配置bintray-release插件
 
 根目录build.gradle添加：
 
@@ -121,6 +144,8 @@ buildscript {
     }
 }
 ```
+
+#### 添加bintray-release插件需要的脚本
 
 Module目录build.gradle添加：
 
@@ -149,6 +174,8 @@ publish {
 
 > 提交JCenter的groupId和在本地定义的一样，所以本地定义groupId要能标识个人，最好到 https://jcenter.bintray.com 看下有没有重复的包名。
 
+#### 执行bintray-release上传命令
+
 打开Terminal执行上传的命令：
 
 `./gradlew clean build bintrayUpload -PbintrayUser=BINTRAY_USERNAME -PbintrayKey=BINTRAY_KEY -PdryRun=false`
@@ -160,6 +187,8 @@ publish {
 ![success](images/bintray_success.png)
 
 ### 使用android-maven-gradle-plugin和gradle-bintray-plugin插件
+
+#### 配置插件
 
 根目录build.gradle添加：
 
@@ -178,6 +207,8 @@ buildscript {
     }
 }
 ```
+
+#### 添加插件需要的脚本
 
 Module目录build.gradle添加：
 
@@ -333,16 +364,13 @@ artifacts {
 }
 ```
 
+#### 执行插件上传命令
+
 打开Terminal执行上传的命令：
 
 `./gradlew bintrayUpload`
 
-其中BINTRAY_USERNAME换成Bintray注册的用户名，BINTRAY_KEY换成自己的APIKEY。
-
-回车执行命令，看到BUILD SUCCESS即上传成功。这时候我们可以打开Maven仓库看到自己提交的项目。
-
-![success](images/bintray_success.png)
-
+回车执行命令，看到BUILD SUCCESS即上传成功。
 
 ## 提交到JCenter
 
@@ -364,7 +392,7 @@ artifacts {
 
 然后直接Send就行，最后等待Bintray审核通过。通过后右上方小邮箱按钮会有提示信息，提示审核通过。
 
-> JCenter是不提供snapshot版本发布的，如果需要托管snapshot版本，需要在申请时勾上“ Host my snapshot build artifacts on the OSS Artifactory at https://oss.jfrog.org ”的选项，
+> JCenter是不提供snapshot版本发布的，如果需要托管snapshot版本，需要在申请时勾上" Host my snapshot build artifacts on the OSS Artifactory at https://oss.jfrog.org "的选项，
 这允许您将需要托管的snapshot版本部署到 https://oss.jfrog.org ，并将它们发布到Bintray。
 
 ![messages](images/bintray_messages.png)
@@ -374,3 +402,120 @@ artifacts {
 ![info](images/bintray_info.png)
 
 这时候Library就已经成功提交到了JCenter，我们回到项目中将根目录build.gradle中的个人Maven仓库引用删掉，只保留JCenter，Sync。大功告成！！！
+
+
+## 一分钟上传Library到JCenter
+
+该示例已经将需要写的脚本封装好了，我们只需要配置相关属性即可，一分钟上传Library到JCenter。（不包括审核时间哦）
+
+### 使用bintray-release插件脚本
+
+首先[配置bintray-release插件](#配置bintray-release插件)。
+
+#### 配置bintray-release插件需要的公共参数
+
+继续在根目录build.gradle添加公共参数：
+
+```
+ext {
+    bintray = [
+            userOrg : "maoqiqi",
+            repoName: 'my-publish',
+            groupId : 'com.codearms.maoqiqi',
+            website : 'https://github.com/maoqiqi/PublishDemo'
+    ]
+}
+```
+
+* userOrg：Bintray 的用户名或者组织名
+* repoName：Bintray 上建的仓库名
+* groupId：项目组Id，通常情况下如果你的包名为 com.example.test ，那么项目组Id就是 com.example 。
+* website：项目官方网站的地址，没有的话就用 Github 上的地址，例如：https://github.com/maoqiqi/PublishDemo 。
+
+#### 配置Bintray账号
+
+在local.properties加上以下配置信息：
+
+```
+#bintray
+bintray.user=
+bintray.apikey=
+```
+
+* bintray.user：Bintray 的用户名
+* bintray.apikey：Bintray 的 API Key
+
+> **注意**：要将local.properties文件加入忽略列表，以免被提交到Github或其他网站泄露个人信息。
+
+#### 配置bintray-release插件需要的项目信息
+
+在Module目录下gradle.properties（没有新建该文件）配置项目信息：
+
+```
+#project
+projectName=my-publish
+projectDescription=Just a simple android lib sample.
+```
+* projectName：项目名称，通常情况下如果你的包名为 com.example.test ，那么项目名称就是 test 。
+* projectDescription：项目描述
+
+#### 引入bintray_1脚本
+
+下载 bintray_1.gradle 文件并放到你的项目根目录下。
+
+然后修改你Module目录下的 build.gradle 文件，在最后加上 `apply from: '../bintray_1.gradle'` 。
+
+#### 通过bintray_1上传到Bintray
+
+打开Terminal执行上传的命令：`gradlew bintrayUpload` 命令即可。看到BUILD SUCCESS即上传成功。
+
+前面所有步骤走完之后实际上只是上传了你的项目到Bintray而已，并没有被包含在JCenter中，要想提交到JCenter中还需要Bintray的审核。请参考[提交到JCenter](#提交到JCenter)。
+
+### 使用android-maven-gradle-plugin和gradle-bintray-plugin插件脚本
+
+首先[配置插件](#配置插件)。
+
+#### 配置插件需要的公共参数
+
+跟[配置bintray-release插件需要的公共参数](#配置bintray-release插件需要的公共参数)信息一致。
+
+#### 配置Bintray账号以及开发者信息
+
+在local.properties加上以下配置信息：
+
+```
+#bintray
+bintray.user=
+bintray.apikey=
+
+#developer
+developer.id=
+developer.name=
+developer.email=
+```
+
+```
+* bintray.user：Bintray 的用户名
+* bintray.apikey：Bintray 的 API Key
+* developer.id：通常是你在开源社区的昵称
+* developer.name：姓名
+* developer.email：邮箱
+```
+
+> **注意**：要将local.properties文件加入忽略列表，以免被提交到Github或其他网站泄露个人信息。
+
+#### 配置插件需要的项目信息
+
+跟[配置bintray-release插件需要的项目信息](#配置bintray-release插件需要的项目信息)一致。
+
+#### 引入bintray_2脚本
+
+下载 bintray_1.gradle 文件并放到你的项目根目录下。
+
+然后修改你的Module目录下的 build.gradle 文件，在最后加上 `apply from: '../bintray_2.gradle'` 。
+
+#### 通过bintray_2上传到Bintray
+
+打开Terminal执行上传的命令：gradlew bintrayUpload 命令即可。看到BUILD SUCCESS即上传成功。
+
+前面所有步骤走完之后实际上只是上传了你的项目到Bintray而已，并没有被包含在JCenter中，要想提交到JCenter中还需要Bintray的审核。请参考[提交到JCenter](#提交到JCenter)。
