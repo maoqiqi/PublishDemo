@@ -1,6 +1,6 @@
-# PublishDemo
+# Publish library to jcenter.
 
-PublishDemo is a project that help Android developers publish lib to jcenter.
+帮助Android开发人员将library发布到JCenter。项目中将需要的脚本封装好了，我们只需要配置相关属性即可一分钟上传Library到JCenter。（不包括审核时间）
 
 [ ![Download](https://api.bintray.com/packages/maoqiqi/maven/my-publish/images/download.svg) ](https://bintray.com/maoqiqi/maven/my-publish/_latestVersion)
 [ ![Download](https://api.bintray.com/packages/maoqiqi/custom-publish/custom-publish/images/download.svg) ](https://bintray.com/maoqiqi/custom-publish/custom-publish/_latestVersion)
