@@ -8,6 +8,7 @@
 [ ![Download](https://api.bintray.com/packages/maoqiqi/custom-publish/publish_1_2/images/download.svg) ](https://bintray.com/maoqiqi/custom-publish/publish_1_2/_latestVersion)
 [ ![Download](https://api.bintray.com/packages/maoqiqi/custom-publish/publish_1_3/images/download.svg) ](https://bintray.com/maoqiqi/custom-publish/publish_1_3/_latestVersion)
 [ ![Download](https://api.bintray.com/packages/maoqiqi/custom-publish/publish_2/images/download.svg) ](https://bintray.com/maoqiqi/custom-publish/publish_2/_latestVersion)
+[ ![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg) ](http://www.apache.org/licenses/LICENSE-2.0)
 
 ## 目录
 
@@ -43,6 +44,8 @@
     * [配置插件需要的项目信息](#配置插件需要的项目信息)
     * [引入bintray_2脚本](#引入bintray_2脚本)
     * [通过bintray_2上传到Bintray](#通过bintray_2上传到Bintray)
+* License
+
 
 <h2 id="h_1">什么是Maven、JCenter、MavenCentral、JitPack、Bintray?</h2>
 
@@ -519,3 +522,23 @@ developer.email=
 打开Terminal执行上传的命令：gradlew bintrayUpload 命令即可。看到BUILD SUCCESS即上传成功。
 
 前面所有步骤走完之后实际上只是上传了你的项目到Bintray而已，并没有被包含在JCenter中，要想提交到JCenter中还需要Bintray的审核。请参考[提交到JCenter](#提交到JCenter)。
+
+
+## License
+
+```
+   Copyright [2018] maoqiqi
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+```
