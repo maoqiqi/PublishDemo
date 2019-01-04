@@ -29,7 +29,7 @@
   * [使用android-maven-gradle-plugin和gradle-bintray-plugin插件](#使用android-maven-gradle-plugin和gradle-bintray-plugin插件)
     * [配置插件](#配置插件)
     * [添加插件需要的脚本](#添加插件需要的脚本)
-    * [执行插件上传命令](#执行插件上传命令)
+    * [执行命令](#执行命令)
 * [提交到JCenter](#提交到JCenter)
 * [一分钟上传Library到JCenter](#一分钟上传Library到JCenter)
   * [使用bintray-release插件脚本](#使用bintray-release插件脚本)
@@ -367,13 +367,20 @@ artifacts {
 }
 ```
 
-#### 执行插件上传命令
+#### 执行命令
 
-打开Terminal执行上传的命令：
+生成maven库所需要的POM文件：
+
+`./gradlew install`
+
+看到BUILD SUCCESSFUL说明POM文件已经生成，并且在Android studio的Project视图中可以看到javadoc.jar和sources.jar文件。
+
+上传Library库：
 
 `./gradlew bintrayUpload`
 
-回车执行命令，看到BUILD SUCCESS即上传成功。
+看到BUILD SUCCESSFUL即上传成功。
+
 
 ## 提交到JCenter
 
@@ -519,7 +526,7 @@ developer.email=
 
 #### 通过bintray_2上传到Bintray
 
-打开Terminal执行上传的命令：gradlew bintrayUpload 命令即可。看到BUILD SUCCESS即上传成功。
+请参考[执行命令](#执行命令)。
 
 前面所有步骤走完之后实际上只是上传了你的项目到Bintray而已，并没有被包含在JCenter中，要想提交到JCenter中还需要Bintray的审核。请参考[提交到JCenter](#提交到JCenter)。
 
