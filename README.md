@@ -449,11 +449,11 @@ ext {
 ```
 #bintray
 bintray.user=
-bintray.apikey=
+bintray.key=
 ```
 
 * bintray.user：Bintray 的用户名
-* bintray.apikey：Bintray 的 API Key
+* bintray.key：Bintray 的 API Key
 
 > **注意**：要将local.properties文件加入忽略列表，以免被提交到Github或其他网站泄露个人信息。
 
@@ -496,7 +496,7 @@ projectDescription=Just a simple android lib sample.
 ```
 #bintray
 bintray.user=
-bintray.apikey=
+bintray.key=
 
 #developer
 developer.id=
@@ -506,7 +506,7 @@ developer.email=
 
 ```
 * bintray.user：Bintray 的用户名
-* bintray.apikey：Bintray 的 API Key
+* bintray.key：Bintray 的 API Key
 * developer.id：通常是你在开源社区的昵称
 * developer.name：姓名
 * developer.email：邮箱
