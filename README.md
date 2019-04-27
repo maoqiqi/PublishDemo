@@ -44,7 +44,7 @@
     * [配置插件需要的项目信息](#配置插件需要的项目信息)
     * [引入bintray_2脚本](#引入bintray_2脚本)
     * [通过bintray_2上传到Bintray](#通过bintray_2上传到Bintray)
-* License
+* [License](#License)
 
 
 <h2 id="h_1">什么是Maven、JCenter、MavenCentral、JitPack、Bintray?</h2>
